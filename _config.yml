@@ -91,3 +91,6 @@ friends: [
         href: "#"
     }
 ]
+
+# Fix: "Deprecation: You appear to have pagination turned on, but you haven't included the `jekyll-paginate` gem. Ensure you have `gems: [jekyll-paginate]` in your configuration file."
+gems: [jekyll-paginate]
