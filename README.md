@@ -2,4 +2,6 @@
 
 My blog.
 
+![Ebn's Blog](img/README.png)
+
 **Thanks to [Hux](http://huangxuan.me/).**
