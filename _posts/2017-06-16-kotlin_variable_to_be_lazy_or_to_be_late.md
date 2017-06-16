@@ -2,6 +2,9 @@
 layout: post
 date: 2017-06-16 16:24:47 +0800
 title: 翻译：Kotlin 变量, 使用 Lazy 还是 Late?
+tags:
+    - Kotlin
+    - Android
 ---
 
 > Original（原文）：[Kotlin variable, to be Lazy, or to be Late?](https://medium.com/@elye.project/kotlin-variable-to-be-lazy-or-to-be-late-ab865c682d61)
