@@ -8,6 +8,7 @@ tags:
 ---
 
 简单的说，委托属性就是将一个属性的操作委托给一个委托类的实例处理，多个属性可以委托给同一个委托类。
+
 跟没说一样。。
 
 ## 委托类
@@ -44,7 +45,7 @@ test.s = "hello" // value=hello
 
 官方对 `thisRef` 参数的要求：
 
-> thisRef —— 必须与 属性所有者 类型（对于扩展属性——指被扩展的类型）相同或者是它的超类型
+> thisRef —— 必须与 **属性所有者** 类型（对于扩展属性——指被扩展的类型）相同或者是它的超类型
 
 ``` kotlin
 class DelegateTest {
@@ -143,7 +144,7 @@ println(fruit) // This is NOT apple
 
 ## Kotlin 标准委托
 
-Kotlin 自带一下默认的委托实现。
+Kotlin 自带一些默认的委托实现。
 
 #### 延迟属性 Lazy
 
@@ -378,7 +379,7 @@ var content: String? by DataPreferencesDelegate(Constant.KEY_TODO, Constant.DEF_
 content = null
 ```
 
-这么写的不方便之处在于，这个属性可能在意义上是不可为空类型的，或者是 `Int`、`Boolean` 等类型，那么将它指定为可为空类型就不合适。这一点在委托类里支持得不好，如果需要更好的扩展，另写工具类支持。
+这么写的不方便之处在于，这个属性可能在意义上是不可为空类型的，或者是 `Int`、`Boolean` 等类型，那么将它指定为可为空类型就不合适。如果需要更好的扩展，另写工具类支持。
 
 #### 读取 SharedPreferences 时指定默认值为 `null`
 
