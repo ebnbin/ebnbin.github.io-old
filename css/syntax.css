@@ -2,6 +2,8 @@
 .highlight pre pre {border:0; margin: 0;}
 .highlight td{border:0 !important; margin: 0 !important;}
 
+.table-responsive{border:0 !important; margin: 0 !important;}
+
 .highlight .hll { background-color: #ffffcc }
 .highlight .c { color: #999988; font-style: italic } /* Comment */
 .highlight .err { color: #a61717; background-color: #e3d2d2 } /*  Error */
