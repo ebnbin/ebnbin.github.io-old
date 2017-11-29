@@ -22,7 +22,7 @@ tags:
 
 话不多说先上代码：
 
-```Java
+```java
 // MainActivity.
 
 @Override
@@ -51,7 +51,7 @@ public void onItemClick(AdapterView<?> parent, View view, int position, long id)
 }
 ```
 
-```Java
+```java
 // ItemActivity.
 
 public static final String KEY_ITEM = "item";
@@ -145,7 +145,7 @@ protected void onSaveInstanceState(Bundle outState) {
 
 View 也有自己的 `onRestoreInstanceState` 和 `onSaveInstanceState`，我们可以看一下 `ScrollView` 源码：
 
-```Java
+```java
 @Override
 protected void onRestoreInstanceState(Parcelable state) {
     if (mContext.getApplicationInfo().targetSdkVersion <= Build.VERSION_CODES.JELLY_BEAN_MR2) {
@@ -178,7 +178,7 @@ ScrollView 自己处理的滚动位置的保存与恢复。
 
 然后 Activity 是怎么保存和恢复 View 的状态的呢？我们可以追溯到 Activity 的 `onSaveInstanceState`（`onRestoreInstanceState` 与它是基本类似的逻辑，一个是保存，一个是恢复，所以我们接下来就只看保存的部分）：
 
-```Java
+```java
 protected void onSaveInstanceState(Bundle outState) {
     outState.putBundle(WINDOW_HIERARCHY_TAG, mWindow.saveHierarchyState());
 
@@ -197,7 +197,7 @@ protected void onSaveInstanceState(Bundle outState) {
 
 它往 Bundle 中存入了 `mWindow.saveHierarchyState()`，这个 `mWindow` 就是 `PhoneWindow`，所以我们接着找 PhoneWindow：
 
-```Java
+```java
 @Override
 public Bundle saveHierarchyState() {
     Bundle outState = new Bundle();
@@ -234,7 +234,7 @@ public Bundle saveHierarchyState() {
 
 这个 `mContentParent` 是 Window 的 `DecorView` 上 id 为 `com.android.internal.R.id.content` 的一个 ViewGroup，在设置了某些 flag 或主题的情况下，它有可能是 DecorView 自身。简而言之，它是我们 `setContentView` 时内容添加到的 ViewGroup，平时我们往 Activity 填充一个 fragment 时可以这么写：
 
-```Java
+```java
 fragmentManager.beginTransaction().add(android.R.id.content, fragment).commit();
 ```
 
@@ -244,7 +244,7 @@ fragmentManager.beginTransaction().add(android.R.id.content, fragment).commit();
 
 这个 `mContentParent` 调用了 `saveHierarchyState(states)`：
 
-```Java
+```java
 public void saveHierarchyState(SparseArray<Parcelable> container) {
     dispatchSaveInstanceState(container);
 }
@@ -268,7 +268,7 @@ protected void dispatchSaveInstanceState(SparseArray<Parcelable> container) {
 
 绕了一大圈子，总算回到 `onSaveInstanceState` 了，这还没完，这是 View 的 `dispatchSaveInstanceState`，对于 ViewGroup：
 
-```Java
+```java
 @Override
 protected void dispatchSaveInstanceState(SparseArray<Parcelable> container) {
     super.dispatchSaveInstanceState(container);
@@ -299,7 +299,7 @@ protected void dispatchSaveInstanceState(SparseArray<Parcelable> container) {
 
 注意一点：想要一个 View 的状态被自动保存和恢复，必须设置 `setSaveEnabled(true)`（默认情况下这个 flag 就是 `true` 的，所以这个用来阻止一个 view 自动保存状态时使用），还必须为这个 View 设置 id，通常是在 xml 中 `android:id="@+id/..."` 的形式。如果没有设置 id，View 将不会自动处理状态的保存与恢复。原因可以查看上面的 View 的 `dispatchSaveInstanceState` 代码，一开始就进行了判断：
 
-```Java
+```java
 protected void dispatchSaveInstanceState(SparseArray<Parcelable> container) {
     if (mID != NO_ID && (mViewFlags & SAVE_DISABLED_MASK) == 0) {
         // ...
@@ -355,7 +355,7 @@ View 的参数 `Parcelable` 是一个接口，没有多少具体的方法，且 
 
 所以它使用起来是这样的：
 
-```Java
+```java
 // 需要被保存的自定义状态.
 private String mCustomState;
 
@@ -431,7 +431,7 @@ private static class SavedState extends BaseSavedState {
 
 有一种解决办法是自定义你所需要的 ViewGroup，修改其中保存子 View 状态的相关方法，然后 layout 文件中使用自定义 ViewGroup。
 
-```Java
+```java
 @Override
 protected void dispatchRestoreInstanceState(SparseArray<Parcelable> container) {
     // 阻止 ViewGroup 恢复子 View 的状态，只让 ViewGroup 恢复自己的状态。
@@ -503,7 +503,7 @@ private static class SavedState extends BaseSavedState {
 
 `dispatchThawSelfOnly(container)` 和 `dispatchFreezeSelfOnly(container)` 的实现如下：
 
-```Java
+```java
 protected void dispatchThawSelfOnly(SparseArray<Parcelable> container) {
     super.dispatchRestoreInstanceState(container);
 }
@@ -517,7 +517,7 @@ protected void dispatchFreezeSelfOnly(SparseArray<Parcelable> container) {
 
 还记得 PhoneWindow 中的代码吗：
 
-```Java
+```java
 @Override
 public Bundle saveHierarchyState() {
     // ...
@@ -541,7 +541,7 @@ public Bundle saveHierarchyState() {
 
 从 API 21 开始，Activity 中添加了几个方法：
 
-```Java
+```java
 @Override
 public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {}
 
