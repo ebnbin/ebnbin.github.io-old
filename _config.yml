@@ -1,49 +1,27 @@
 # Site settings
-<<<<<<< HEAD
 title: Ebn's Blog
 SEOTitle: Ebn's Blog
 header-img: img/wp_004.jpg
-email: ebnbin@outlook.com
+email: ebnbin@gmail.com
 description: ""
 keyword: ""
 url: "http://ebnbin.com/"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
-=======
-title: Your Blog
-SEOTitle: 你的博客 | Your Blog
-header-img: img/home-bg.jpg
-email: huxpro@gmail.com
-description: ""
-keyword: ""
-url: "http://huangxuan.me"              # your host, for absolute URL
-baseurl: "/huxblog-boilerplate"         # for example, '/blog' if your blog hosted on 'host/blog'
->>>>>>> huxpro/master
 
 
 
 # SNS settings
 RSS: false
-<<<<<<< HEAD
 #weibo_username:     huxpro
 #zhihu_username:     huxpro
 github_username:    ebnbin
 #twitter_username:  huxpro
 #facebook_username:  huxpro
-=======
-weibo_username:     huxpro
-zhihu_username:     huxpro
-github_username:    huxpro
-#twitter_username:  huxpro
-facebook_username:  huxpro
->>>>>>> huxpro/master
 
 
 
 # Build settings
-<<<<<<< HEAD
-=======
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
->>>>>>> huxpro/master
 highlighter: rouge
 permalink: pretty
 paginate: 10
@@ -52,15 +30,12 @@ anchorjs: true                          # if you want to customize anchor. check
 
 
 
-<<<<<<< HEAD
-=======
 # Gems
 # from PR#40, to support local preview for Jekyll 3.0
 gems: [jekyll-paginate]
 
 
 
->>>>>>> huxpro/master
 # Markdown settings
 # replace redcarpet to kramdown,
 # although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
@@ -68,7 +43,6 @@ gems: [jekyll-paginate]
 markdown: kramdown
 kramdown:
   input: GFM                            # use Github Flavored Markdown !important
-<<<<<<< HEAD
   syntax_highlighter: rouge
 
   # Rouge Highlighter in Kramdown › http://kramdown.gettalong.org/syntax_highlighter/rouge.html
@@ -82,53 +56,32 @@ kramdown:
     block:
       line_numbers: true
       start_line: 1
-=======
-
->>>>>>> huxpro/master
 
 
 # Disqus settings
 #disqus_username: _your_disqus_short_name_
 
 # Duoshuo settings
-<<<<<<< HEAD
 #duoshuo_username: huxblog
 # Share component is depend on Comment so we can NOT use share only.
 #duoshuo_share: true                     # set to false if you want to use Comment without Sharing
-=======
-duoshuo_username: huxblog
-# Share component is depend on Comment so we can NOT use share only.
-duoshuo_share: true                     # set to false if you want to use Comment without Sharing
->>>>>>> huxpro/master
 
 
 
 
 # Analytics settings
 # Baidu Analytics
-<<<<<<< HEAD
 #ba_track_id: 4cc1f2d8f3067386cc5cdb626a202900
 # Google Analytics
 #ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
 #ga_domain: huangxuan.me
-=======
-ba_track_id: 4cc1f2d8f3067386cc5cdb626a202900
-# Google Analytics
-ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
-ga_domain: huangxuan.me
->>>>>>> huxpro/master
 
 
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-<<<<<<< HEAD
 #sidebar-about-description: "写写代码，做做设计，看看产品。世界那么大，多玩玩看看。"
 #sidebar-avatar: /img/ebnbin.png      # use absolute URL, seeing it's used in both `/` and `/about/`
-=======
-sidebar-about-description: "写写代码，做做设计，看看产品。世界那么大，多玩玩看看。"
-sidebar-avatar: /img/avatar-hux.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
->>>>>>> huxpro/master
 
 
 
@@ -143,7 +96,6 @@ friends: [
     {
         title: "Hux Blog",
         href: "http://huangxuan.me"
-<<<<<<< HEAD
 #    },{
 #        title: "Foo",
 #        href: "#"
@@ -161,19 +113,3 @@ friends: [
 
 # Fix: "Deprecation: You appear to have pagination turned on, but you haven't included the `jekyll-paginate` gem. Ensure you have `gems: [jekyll-paginate]` in your configuration file."
 gems: [jekyll-paginate]
-=======
-    },{
-        title: "Foo",
-        href: "#"
-    },{
-        title: "Bar",
-        href: "#"
-    },{
-        title: "Example Friends",
-        href: "#"
-    },{
-        title: "It helps SEO",
-        href: "#"
-    }
-]
->>>>>>> huxpro/master
